@@ -1,17 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
-#ONE
-#x = np.linspace(0,10,100) #100 steps
-#y = np.sin(x)
-#plt.plot(x,y,label='sino function',color='blue')
-#plt.title('My first graphic')
-#plt.xlabel('Axis X (Time)')
-#plt.ylabel('Axis Y (Amplitude)')
-#plt.grid(True) #adds grid
-#plt.legend()
-#plt.show() #shows results
-#TWO
+
 matplotlib.use('TkAgg')
 plt.title('Trigonometry display')
 x_sino = np.arange(-2*np.pi,2*np.pi,0.1)
