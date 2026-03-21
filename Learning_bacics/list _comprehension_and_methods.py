@@ -1,0 +1,114 @@
+friends = ["Alexey","Andrey","Rodion",False,62] #we store multiple values inside one object
+print(friends[1:]) #from specific character to the end
+print(friends[-1]) #enumeration from the end
+print(friends[1:3]) #from specific to the final specific character it does not include 3
+friends[1] = 'Mike'
+print(friends[1])
+#LIST FUNCTIONS:
+lucky_numbers = [4, 8 , 15 , 16, 23, 42]
+guys = ['Kevin','Karen','Jim','Jim','Oscar','Toby']
+guys.extend(lucky_numbers) #we reunite two lists(it is used for lists exactly)
+guys.append("Creed") #we add ADDITIONAL INDIVIDUAL NUMBER
+guys.insert(1, 'Kelly') #we actually INSERT IN INTO list
+guys.remove('Jim') #can remove only single character
+guys.clear()
+guys.pop(4) #it removes THE LAST ELEMENT from the list
+print(guys.index('Jim')) #the index of specific element
+print(guys.count('Jim')) #How many times this value shows up in the list
+guys.sort() #alphabet order
+guys.reverse() # reverse it
+new_guys = guys.copy()
+print(guys)
+
+#GET SUBLISTS BETWEEN TWO indexes:
+a = [5,10,15,20,25,30,35,40]
+#LIST[START:END:STEP]
+print(a[1:4]) #it DOES NOT TAKE LAST INDEX
+print(a[:3])
+print(a[5:])
+print(a[::3]) #STEP
+print(a[-1]) #The LAST ELEMENT
+print(a[-3:]) #LAST THREE ELEMENTS
+print(a[::-1]) #REVERSE LIST _ !!!!!
+
+
+#Now lets talk about list comprehensions(writing something in one string)
+#the structure is [RESULT/CYCLE/CONDITION]
+#IN RESULT we print out exactly what we want to put into our new list
+#Simple:
+new_list = []
+for x in range(5):
+    if x > 2:
+        new_list.append(x * 10)
+print(new_list)
+##in one sentence:
+new_list2 = [      x*10           for x in range(5)     if x > 2]
+##           #desirable result     cycles(looping)       condition
+print(new_list2)
+
+#Training
+#One :
+numbers = [1,2,3,4,5]
+new_list = [num ** 2  for num in numbers]
+        #   result        cycle
+print(new_list)
+##Two
+users = ["Alice","Bob","Anna","John","Alex"]
+capital_A =[name   for name in users     if name[0] == 'A' ]
+capital_A2 =[name   for name in users     if name.startswith('A')] #using method 'startswitch' we can check letters of words and etc
+print(capital_A , capital_A2)
+
+#string.startswitch(prefix,[start],[end])
+#prefix is what we are looking for basically
+#start is the index with whom we start our checking
+#end is basically the last !not including! index
+name = 'Bob'
+result1 = name.startswith('A')
+print(result1) #can be true or false
+
+#Also we can give TUPLES and they can be executed
+url1 = 'https://google.com'
+url2 = 'coach://files.org'
+prefixes = ('http://','https://') #we can put many
+print(url1.startswith(prefixes)) #True
+print(url2.startswith(prefixes)) #False
+text = 'GeeksforGeeks'
+check = text.startswith("for",5,8) #not including eight
+print(check)
+
+#Three
+scores = [30,80,45,90,50]
+results = ["Pass"            if amount >= 50 else "Fail"           for amount in scores      ]
+#          1)Desirable result + conditions(if there are many)            2)cycle
+#we can notice some kind of alteration in the structure so when we use 'if' with 'else' we must
+#combine it with the 'desirable result' for checking many 'if statements'
+print(results)
+#Four
+words = ['python','umbrella','fan','sun','car','ocean','mountain','run','plan']
+new_list = [word.upper()  for word in words if len(word) > 4 and word.endswith('n')]
+print(new_list)
+#Five
+numbers = [0,1,2,3,4,5,6,7,8,9,10]
+check_list = ['Even' if number % 2 == 0  else 'Odd'  for number in numbers]
+print(check_list)
+#Six
+matrix = [[1,-2,3],[-4,5],[6,-7,8,9]]
+flattening = [element for row in matrix for element in row if element >= 0]
+print(flattening)
+#Seven
+items = [
+    {"name": "Laptop" , "price": 1200},
+    {"name": "Mouse" , "price": 25},
+    {"keyboard": "Keyboard" , "price": 90},
+    {"name": "Monitor" , "price": 300}
+]
+premium_goods = [item['name'] + " - Premium"    for item in items if item['price'] >= 100]
+print(premium_goods)
+#EIGHT
+reviews = ['This film is an amazing experience!' 'A wonderful movie , I really enjoyed it']
+words = [word for review in reviews for word in review.split() if word.startswith(('i','a','e','o','u','y')) and len(word) > 2]
+print(words)
+#Nine
+numbers = [2,8,3,10,4,7]
+squared_numbers = [pow(number,2) for number in numbers if number > 5]
+print(squared_numbers)
