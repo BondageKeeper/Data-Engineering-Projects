@@ -1,0 +1,11 @@
+import pandas as pd
+data_frame = pd.read_csv('raw_orders.csv',sep=';')
+cleaned_data_frame = data_frame.drop_duplicates(subset=['order_id'],keep='first')
+cleaned_data_frame['customer'] = cleaned_data_frame['customer'].apply(lambda customer: customer.strip(' ').lower().capitalize())
+cleaned_data_frame['price'] = cleaned_data_frame['raw_price'].apply(lambda price: 0 if price == 'none' else float(price.strip(' $!')))
+cleaned_data_frame['tags'] = cleaned_data_frame['tags'].apply(lambda tag: len(tag.split(',')))
+cleaned_data_frame['Sale status'] = cleaned_data_frame.apply(lambda row: "High sale" if row['price'] > 499 else 'Low sale',axis=1)
+final_revenue = cleaned_data_frame.groupby('category').agg({'price':['sum']})
+print(f'revenue of each category: {final_revenue}')
+print(cleaned_data_frame)
+cleaned_data_frame.to_csv('clean_orders.csv',index=False,sep=';')
