@@ -1,0 +1,11 @@
+order_id;customer;category;raw_price;tags
+1; ivan ;Tech;$100;new,sale
+2;ALICE;Food;$250;old
+2; bob;Food;$250;sale
+3;ivan;Tech;none;tech,new
+4;  ANNA;Tech;$500!;hot,sale
+5;ivan;Food;$70;food
+6;alice;Tech;$1200;tech
+6;ALICE;Tech;$1200;tech
+7;none;Food;$50;old
+8;CHRIS ;Food;$300;new
