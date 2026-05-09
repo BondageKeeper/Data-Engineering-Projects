@@ -1,4 +1,5 @@
 import numpy as np
+import cv2
 def image_loader(path,nx,ny):
     image = cv2.imread(path,0)
     binary_data = None
