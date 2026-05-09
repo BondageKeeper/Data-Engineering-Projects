@@ -1,4 +1,5 @@
 import numpy as np
+import cv2
 def smart_otsu_loader(path,nx,ny):
     image2 = cv2.imread(path,0)
     if image2 is None:
